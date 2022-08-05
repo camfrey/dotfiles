@@ -11,6 +11,7 @@
     ~/.zshrc: zshrc
     ~/.config/nvim/init.vim: init.vim
     ~/.p10k.zsh: p10k.zsh
+    ~/.pam_environment pam_environment
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
