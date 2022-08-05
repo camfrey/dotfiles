@@ -52,6 +52,10 @@ antigen apply
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+export LM_LICENSE_FILE DEFAULT=27026@edt-r7prod,27026@apllliceng1,27026@apllliceng2,27026@apllliceng3
+export XILINXD_LICENSE_FILE=DEFAULT=27026@edt-r7prod,27026@apllliceng1,27026@apllliceng2,27026@apllliceng3
+
+
 alias kalix86='ssh 192.168.64.6'
 alias starwars='telnet towel.blinkenlights.nl'
 
