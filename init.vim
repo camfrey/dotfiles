@@ -40,7 +40,6 @@ noremap J     }
 noremap H     ^
 noremap L     $
 
-" Plugins
 call plug#begin()
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
