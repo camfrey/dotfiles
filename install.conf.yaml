@@ -3,14 +3,13 @@
       relink: true
 
 - create:
-    - ~/.config/nvim
     - ~/.config
 
 - clean: ['~','~/.config','~/.config/nvim']
 
 - link:
     ~/.zshrc: zshrc
-    ~/.config/nvim/init.vim: init.vim
+    ~/.config/nvim: nvim
     ~/.gitconfig: gitconfig
     ~/.config/starship.toml: starship.toml
 
