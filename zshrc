@@ -11,7 +11,7 @@ fi
 
 case $(uname -s) in
 	Linux)
-		source ~/.dotfiles/antigen.zsh
+		source /usr/share/zsh/share/antigen.zsh
 		;;
 	*)
 		source /opt/homebrew/share/antigen/antigen.zsh
