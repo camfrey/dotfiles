@@ -16,3 +16,33 @@
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
+
+# Installs brew if missing
+- ifmacos:
+  - install-brew: true
+
+# Adds a tap
+#- ifmacos:
+#  - tap:
+#    - wez/wezterm
+
+# Installs certain brew packages
+- ifmacos:
+  - brew:
+      - git
+      - neovim
+      - ripgrep
+      - starship
+      - stylua
+      - shfmt
+      - shellcheck
+      - prettier
+      - deno 
+      - antigen
+  
+# Installs certain casks
+- ifmacos:
+  - cask:
+      - wezterm
+      - font-hack-nerd-font
+
