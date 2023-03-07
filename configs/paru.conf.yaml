@@ -8,3 +8,7 @@
   - prettier
   - deno 
   - antigen
+  - cmake
+  - python
+  - ttf-hack-nerd
+

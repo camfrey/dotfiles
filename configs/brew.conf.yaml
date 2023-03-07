@@ -11,6 +11,8 @@
   - prettier
   - deno 
   - antigen
+  - cmake
+  - python
   
 # Installs certain casks
 - cask:

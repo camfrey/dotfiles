@@ -4,6 +4,7 @@
   - git
   - rust-all
   - python3
+  - cmake
 
 - shell:
   - curl -L git.io/antigen > antigen.zsh
