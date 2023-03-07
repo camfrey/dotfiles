@@ -1,0 +1,10 @@
+- paru:
+  - neovim
+  - git
+  - neovim
+  - stylua
+  - shfmt
+  - shellcheck
+  - prettier
+  - deno 
+  - antigen

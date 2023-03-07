@@ -1,0 +1,18 @@
+# Installs brew if missing
+- install-brew: true
+
+# Installs certain brew packages
+- brew:
+  - git
+  - neovim
+  - stylua
+  - shfmt
+  - shellcheck
+  - prettier
+  - deno 
+  - antigen
+  
+# Installs certain casks
+- cask:
+  - font-hack-nerd-font
+

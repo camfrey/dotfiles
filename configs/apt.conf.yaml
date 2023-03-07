@@ -1,0 +1,11 @@
+- apt:
+  - neovim
+  - zsh
+  - git
+  - rust-all
+  - python3
+
+- shell:
+  - curl -L git.io/antigen > antigen.zsh
+  - mkdir -p /usr/share/zsh/share
+  - mv antigen.zsh /usr/share/zsh/share/

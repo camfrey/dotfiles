@@ -1,0 +1,7 @@
+- cargo:
+  - starship
+  - exa
+  - bob-nvim
+  - bat
+  - ripgrep
+
