@@ -13,7 +13,7 @@ PLUGINS_DIR="plugins"
 
 cd "${BASEDIR}"
 git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
-git submodule update --init --recursive "${DOTBOT_DIR}"
+git submodule update --init --recursive
 
 if [ -x "$(command -v brew)" ] 
 then 
