@@ -1,0 +1,15 @@
+- defaults:
+    link:
+      relink: true
+
+- create:
+    - ~/.config
+
+- clean: ['~','~/.config','~/AppData/Local']
+
+- link:
+    ~/AppData/Local/nvim: nvim
+    ~/.gitconfig: gitconfig
+    ~/.config/starship.toml: starship.toml
+    ~/.config/wezterm: wezterm
+

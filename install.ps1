@@ -1,14 +1,15 @@
 $ErrorActionPreference = "Stop"
 
-$CONFIG = "install.conf.yaml"
-$DOTBOT_DIR = "dotbot"
+$CONFIG_DIR="configs"
+$CONFIG="${CONFIG_DIR}/install_win.conf.yaml"
+$DOTBOT_DIR="dotbot"
 
 $DOTBOT_BIN = "bin/dotbot"
 $BASEDIR = $PSScriptRoot
 
 Set-Location $BASEDIR
 
-Set-Location $DOTBOT_DIR && git submodule update --init --recursive
+git submodule update --init --recursive
 foreach ($PYTHON in ('python', 'python3')) {
     # Python redirects to Microsoft Store in Windows 10 when not installed
     if (& { $ErrorActionPreference = "SilentlyContinue"
