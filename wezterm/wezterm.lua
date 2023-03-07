@@ -1,4 +1,4 @@
 return {
-	color_scheme = "Whimsy",
+  color_scheme = "OneDark (Gogh)",
 }
 
