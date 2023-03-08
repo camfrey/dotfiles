@@ -4,7 +4,7 @@
 	ignore = dirty
 [submodule "nvim"]
 	path = nvim
-	url = https://github.com/NvChad/NvChad.git
+	url = git@github.com:camfrey/NvFrey.git
 [submodule "dotbot-brew"]
 	path = plugins/dotbot-brew
 	url = https://github.com/wren/dotbot-brew.git
