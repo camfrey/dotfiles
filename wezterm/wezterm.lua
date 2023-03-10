@@ -4,6 +4,6 @@ return {
   color_scheme = "tokyonight-storm",
 
   -- Fonts
-  font = wezterm.font("MesloLGMDZ NFM", {weight="Regular", stretch="Normal", style="Normal"}),
+  font = wezterm.font("Hack NFM", {weight="Regular", stretch="Normal", style="Normal"}),
 }
 
