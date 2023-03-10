@@ -20,9 +20,7 @@ foreach ($PYTHON in ('python', 'python3')) {
         # Scoop
         &$PYTHON $(Join-Path $BASEDIR -ChildPath $DOTBOT_DIR | Join-Path -ChildPath $DOTBOT_BIN) -d $BASEDIR -c "$CONFIG_DIR/scoop.conf.yaml" -p "$PLUGINS_DIR/dotbot-scoop/scoop.py"
         # Rust
-        #if ( $args[1] -eq "--rust"){
-        #  &$PYTHON $(Join-Path $BASEDIR -ChildPath $DOTBOT_DIR | Join-Path -ChildPath $DOTBOT_BIN) -d $BASEDIR -c "$CONFIG_DIR/rust.conf.yaml" -p "$PLUGINS_DIR/dotbot-rust/rust.py"
-        #  }
+        &$PYTHON $(Join-Path $BASEDIR -ChildPath $DOTBOT_DIR | Join-Path -ChildPath $DOTBOT_BIN) -d $BASEDIR -c "$CONFIG_DIR/rust_win.conf.yaml" -p "$PLUGINS_DIR/dotbot-rust/rust.py"
         # Linking
         &$PYTHON $(Join-Path $BASEDIR -ChildPath $DOTBOT_DIR | Join-Path -ChildPath $DOTBOT_BIN) -d $BASEDIR -c $CONFIG
         return

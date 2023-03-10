@@ -1,0 +1,5 @@
+- cargo:
+  - starship
+  - bat
+  - ripgrep
+
