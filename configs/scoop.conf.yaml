@@ -1,8 +1,7 @@
 - scoop:
     buckets:
       - extras
-      - name: nerd-fonts
-        repo: https://github.com/matthewjberger/scoop-nerd-fonts
+      - nerd-fonts
     apps:
       - cmake
       - gcc
