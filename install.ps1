@@ -4,6 +4,8 @@ $CONFIG_DIR="configs"
 $CONFIG="${CONFIG_DIR}/install_win.conf.yaml"
 $DOTBOT_DIR="dotbot"
 
+$PLUGINS_DIR="plugins"
+
 $DOTBOT_BIN = "bin/dotbot"
 $BASEDIR = $PSScriptRoot
 
@@ -15,7 +17,14 @@ foreach ($PYTHON in ('python', 'python3')) {
     if (& { $ErrorActionPreference = "SilentlyContinue"
             ![string]::IsNullOrEmpty((&$PYTHON -V))
             $ErrorActionPreference = "Stop" }) {
-        &$PYTHON $(Join-Path $BASEDIR -ChildPath $DOTBOT_DIR | Join-Path -ChildPath $DOTBOT_BIN) -d $BASEDIR -c $CONFIG $Args
+        # Scoop
+        &$PYTHON $(Join-Path $BASEDIR -ChildPath $DOTBOT_DIR | Join-Path -ChildPath $DOTBOT_BIN) -d $BASEDIR -c "$CONFIG_DIR/scoop.conf.yaml" -p "$PLUGINS_DIR/dotbot-scoop/scoop.py"
+        # Rust
+        #if ( $args[1] -eq "--rust"){
+        #  &$PYTHON $(Join-Path $BASEDIR -ChildPath $DOTBOT_DIR | Join-Path -ChildPath $DOTBOT_BIN) -d $BASEDIR -c "$CONFIG_DIR/rust.conf.yaml" -p "$PLUGINS_DIR/dotbot-rust/rust.py"
+        #  }
+        # Linking
+        &$PYTHON $(Join-Path $BASEDIR -ChildPath $DOTBOT_DIR | Join-Path -ChildPath $DOTBOT_BIN) -d $BASEDIR -c $CONFIG
         return
     }
 }

@@ -1,0 +1,14 @@
+- scoop:
+    buckets:
+      - extras
+      - name: nerd-fonts
+        repo: https://github.com/matthewjberger/scoop-nerd-fonts
+    apps:
+      - cmake
+      - gcc
+      - neovim
+      - python
+      - rustup
+      - git
+      - Delugia-Nerd-Font-Complete
+

@@ -4,12 +4,14 @@
 
 - create:
     - ~/.config
+    - ~/Documents/WindowsPowerShell
 
-- clean: ['~','~/.config','~/AppData/Local']
+- clean: ['~','~/.config','~/AppData/Local', '~/Documents/WindowsPowerShell']
 
 - link:
     ~/AppData/Local/nvim: nvim
     ~/.gitconfig: gitconfig
     ~/.config/starship.toml: starship.toml
     ~/.config/wezterm: wezterm
+    ~/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1 : powershell.ps1
 
