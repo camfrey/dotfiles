@@ -5,6 +5,7 @@
 - create:
     - ~/.config
     - ~/Documents/WindowsPowerShell
+    - ~/AppData/Local/clink
 
 - clean: ['~','~/.config','~/AppData/Local', '~/Documents/WindowsPowerShell']
 
@@ -14,4 +15,5 @@
     ~/.config/starship.toml: starship.toml
     ~/.config/wezterm: wezterm
     ~/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1 : powershell.ps1
+    ~/AppData/Local/clink/starship.lua: starship.lua
 
