@@ -4,8 +4,9 @@
 
 - create:
     - ~/.config
+    - ~/.config/zellij
 
-- clean: ['~','~/.config','~/.config/nvim']
+- clean: ['~', '~/.config', '~/.config/zellij']
 
 - link:
     ~/.zshrc: zshrc
@@ -14,4 +15,5 @@
     ~/.gitconfig: gitconfig
     ~/.config/starship.toml: starship.toml
     ~/.config/wezterm: wezterm
+    ~/.config/zellij/config.kdl: config.kdl
 
