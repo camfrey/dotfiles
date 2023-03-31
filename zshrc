@@ -41,6 +41,14 @@ antigen bundle   zsh-users/zsh-completions
 # Tell antigen that you're done
 antigen apply
 
+# Aliases
 alias starwars='telnet towel.blinkenlights.nl'
+
+alias ls=exa
+alias cat=bat
+alias du=dust 
+alias find=fd
+alias htop=btm
+alias ps=procs
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
