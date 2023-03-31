@@ -49,6 +49,7 @@ alias cat=bat
 alias du=dust 
 alias find=fd
 alias htop=btm
+alias top=btm
 alias ps=procs
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
