@@ -5,11 +5,13 @@
     apps:
       - cmake
       - gcc
+      - llvm
+      - make
+      - modejs
       - neovim
       - python
       - rustup
       - git
-      - tldr
       - Hack-NF-Mono
       - Hack-NF
 
