@@ -44,7 +44,7 @@ antigen apply
 # Aliases
 alias starwars='telnet towel.blinkenlights.nl'
 
-alias ls=exa
+alias ls=eza
 alias cat=bat
 alias du=dust 
 alias find=fd
