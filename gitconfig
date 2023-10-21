@@ -24,3 +24,6 @@
 [diff]
   colorMoved = default
 
+[filter "gitignore"]
+	clean = "sed '/#gitignore$/d',"
+

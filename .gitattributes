@@ -1,0 +1,3 @@
+"[user]" filter=gitignore
+"name =*" filter=gitignore
+"email =*" filter=gitignore
