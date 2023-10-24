@@ -16,4 +16,6 @@
   - bandwhich
   - hyperfine
   - zellij
+  - cargo-cache
+  - cargo-update
 

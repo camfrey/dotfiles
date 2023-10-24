@@ -1,5 +1,6 @@
 - cargo:
   - starship
+  - eza
   - bat
   - ripgrep
   - git-delta
@@ -11,4 +12,5 @@
   - procs
   - sd
   - tokei
-
+  - cargo-cache
+  - cargo-update
