@@ -24,6 +24,7 @@
 [diff]
   colorMoved = default
 
-[filter "gitignore"]
-	clean = "sed '/#gitignore$/d',"
+[filter "gituser"]
+	clean = "sed '/#gituser/d'"
+	smudge = cat
 
