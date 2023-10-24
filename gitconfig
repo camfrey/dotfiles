@@ -28,3 +28,6 @@
 	clean = "sed '/#gituser/d'"
 	smudge = cat
 
+[user]
+	name = Cameron Frey
+	email = dev@camfrey.io
