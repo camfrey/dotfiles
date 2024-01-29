@@ -1,3 +1,5 @@
+param([string]$r="no")
+
 $ErrorActionPreference = "Stop"
 
 $CONFIG_DIR="configs"
@@ -20,7 +22,9 @@ foreach ($PYTHON in ('python', 'python3')) {
         # Scoop
         &$PYTHON $(Join-Path $BASEDIR -ChildPath $DOTBOT_DIR | Join-Path -ChildPath $DOTBOT_BIN) -d $BASEDIR -c "$CONFIG_DIR/scoop.conf.yaml" -p "$PLUGINS_DIR/dotbot-scoop/scoop.py"
         # Rust
-        &$PYTHON $(Join-Path $BASEDIR -ChildPath $DOTBOT_DIR | Join-Path -ChildPath $DOTBOT_BIN) -d $BASEDIR -c "$CONFIG_DIR/rust_win.conf.yaml" -p "$PLUGINS_DIR/dotbot-rust/rust.py"
+        if($r -eq "yes") {
+          &$PYTHON $(Join-Path $BASEDIR -ChildPath $DOTBOT_DIR | Join-Path -ChildPath $DOTBOT_BIN) -d $BASEDIR -c "$CONFIG_DIR/rust_win.conf.yaml" -p "$PLUGINS_DIR/dotbot-rust/rust.py"
+        }
         # Linking
         &$PYTHON $(Join-Path $BASEDIR -ChildPath $DOTBOT_DIR | Join-Path -ChildPath $DOTBOT_BIN) -d $BASEDIR -c $CONFIG
         return
