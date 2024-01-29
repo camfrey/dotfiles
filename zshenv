@@ -1,2 +1,3 @@
 PATH=$HOME/.local/share/bob/nvim-bin:$HOME/.cargo/bin:$PATH
-EDITOR=nvim
+VISUAL=nvim
+EDITOR=$VISUAL
