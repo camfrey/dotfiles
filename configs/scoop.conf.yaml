@@ -1,5 +1,7 @@
+---
 - scoop:
     buckets:
+      - main
       - extras
       - nerd-fonts
     apps:
@@ -7,11 +9,12 @@
       - gcc
       - llvm
       - make
-      - modejs
+      - nodejs
       - neovim
       - python
       - rustup
       - git
-      - Hack-NF-Mono
+      - Hack-NF-mono
       - Hack-NF
-
+      - vcxsrv
+...
