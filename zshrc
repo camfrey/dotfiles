@@ -1,45 +1,20 @@
-eval "$(starship init zsh)"
+# Download Znap, if it's not there yet.
+ZNAP_DIR=$HOME/.local/share/znap
+[[ -r $ZNAP_DIR/znap.zsh ]] ||
+    git clone --depth 1 -- \
+        https://github.com/marlonrichert/zsh-snap.git $ZNAP_DIR
+source $ZNAP_DIR/znap.zsh  # Start Znap
 
-# For brew completions
-if type brew &>/dev/null
-then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+znap eval starship 'starship init zsh'
+znap prompt
 
-  autoload -Uz compinit
-  compinit
-fi
+znap source marlonrichert/zsh-autocomplete
 
-case $(uname -s) in
-	Linux)
-		source /usr/share/zsh/share/antigen.zsh
-		;;
-	*)
-		source /opt/homebrew/share/antigen/antigen.zsh
-		;;
-esac
+ZSH_AUTOSUGGEST_STRATEGY=( history )
+znap source zsh-users/zsh-autosuggestions
 
-# Load the oh-my-zsh's library
-antigen use oh-my-zsh
-
-# Bundles from the default repo (robbyrussell's oh-my-zsh)
-antigen bundle git
-antigen bundle sudo
-antigen bundle web-search
-antigen bundle copyfile
-antigen bundle copydir
-antigen bundle history
-antigen bundle macos
-# Syntax highlighting bundle.
-antigen bundle   zsh-users/zsh-syntax-highlighting
-
-# Fish-like auto suggestions
-antigen bundle   zsh-users/zsh-autosuggestions
-
-# Extra zsh completions
-antigen bundle   zsh-users/zsh-completions
-
-# Tell antigen that you're done
-antigen apply
+ZSH_HIGHLIGHT_HIGHLIGHTERS=( main brackets )
+znap source zsh-users/zsh-syntax-highlighting
 
 # Aliases
 alias starwars='telnet towel.blinkenlights.nl'
