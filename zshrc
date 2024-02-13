@@ -8,7 +8,11 @@ source $ZNAP_DIR/znap.zsh  # Start Znap
 znap eval starship 'starship init zsh'
 znap prompt
 
+znap source ohmyzsh/ohmyzsh lib/git.zsh
+
 znap source marlonrichert/zsh-autocomplete
+
+znap source marlonrichert/zsh-hist
 
 ZSH_AUTOSUGGEST_STRATEGY=( history )
 znap source zsh-users/zsh-autosuggestions
@@ -26,5 +30,3 @@ alias find=fd
 alias htop=btm
 alias top=btm
 alias ps=procs
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
