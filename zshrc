@@ -5,12 +5,17 @@ ZNAP_DIR=$HOME/.local/share/zsh/znap
         https://github.com/marlonrichert/zsh-snap.git $ZNAP_DIR
 source $ZNAP_DIR/znap.zsh  # Start Znap
 
+# Use starship for prompt
 znap eval starship 'starship init zsh'
 znap prompt
 
-znap source ohmyzsh/ohmyzsh lib/git.zsh
 HISTFILE=$HOME/.local/share/zsh/history
-znap source ohmyzsh/ohmyzsh lib/history.zsh
+
+# Setup oh-my-sh
+# Pull repo through znap and source base script
+export ZSH="$HOME/.local/share/zsh/ohmyzsh/ohmyzsh"
+plugins=(aliases cp fd git git-auto-fetch history python sudo ubuntu)
+znap source ohmyzsh/ohmyzsh oh-my-zsh.sh
 
 znap source marlonrichert/zsh-autocomplete
 
@@ -24,6 +29,10 @@ znap source zsh-users/zsh-syntax-highlighting
 
 # Use znap install for completions and functions
 znap install zsh-users/zsh-completions
+
+znap fpath _rustup 'rustup completions zsh'
+znap fpath _cargo 'rustup completions zsh cargo'
+znap fpath _starship 'starship completions zsh'
 
 # Aliases
 alias starwars='telnet towel.blinkenlights.nl'
