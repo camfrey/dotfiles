@@ -1,0 +1,8 @@
+{{- if eq .chezmoi.os "windows" }}
+["AppData/Local/nvim"]
+{{- else }}
+[".config/nvim"]
+{{- end }}
+    type = "git-repo"
+    url = "git@github.com:camfrey/NvFrey.git"
+    refreshPeriod = "168h"
