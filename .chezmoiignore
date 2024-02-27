@@ -1,10 +1,18 @@
 README.md
 {{ if ne .chezmoi.os "windows" }}
+AppData
+AppData/Local
+AppData/Local/clink
 AppData/Local/clink/starship.lua
+AppData/Roaming
+AppData/Roaming/helix
+AppData/Roaming/helix/config.toml
 Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
 {{ else if ne .chezmoi.os "linux" }}
 .zshenv
 .zshrc
 .config/zellij
 .config/zellij/config.kdl
+.config/helix
+.config/helix/config.toml
 {{ end }}
