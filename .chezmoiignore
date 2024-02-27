@@ -8,7 +8,3 @@ Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
 .config/zellij
 .config/zellij/config.kdl
 {{ end }}
-
-{{ if ne .chezmoi.osRelease.id "arch" }}
-run_onchange_paru-install.sh
-{{ end }}
