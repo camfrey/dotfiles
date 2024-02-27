@@ -6,3 +6,10 @@
     type = "git-repo"
     url = "git@github.com:camfrey/NvFrey.git"
     refreshPeriod = "168h"
+    {{- if eq .chezmoi.os "windows" }}
+    ["AppData/Local/nvim".clone]
+        args = ["--recurse-submodules"]
+    {{- else }}
+    [".config/nvim".clone]
+        args = ["--recurse-submodules"]
+    {{- end }}
