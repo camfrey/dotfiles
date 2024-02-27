@@ -1,0 +1,30 @@
+[init]
+  defaultBranch = main
+
+[alias]
+  lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+
+[core]
+  pager = delta
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  navigate = true    # use n and N to move between diff sections
+  light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+  side-by-side = true
+  line-numbers = true
+  hyperlinks = true
+  hyperlinks-file-link-format = "file-line://{path}:{line}"
+
+[merge]
+  conflictstyle = diff3
+  tool = nvimdiff
+
+[diff]
+  colorMoved = default
+
+[user]
+  name = Cameron Frey
+  email = dev@camfrey.io
