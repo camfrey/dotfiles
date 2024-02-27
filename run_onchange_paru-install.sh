@@ -11,4 +11,6 @@ then
   rm -rf paru
 fi
 
-paru -S wezterm neovim cmake python ttf-hack-nerd
+# Run once to sync and update
+paru
+paru -S --needed wezterm neovim cmake python ttf-hack-nerd
