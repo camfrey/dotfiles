@@ -11,4 +11,4 @@ then
   rm -rf paru
 fi
 
-paru -S neovim cmake python ttf-hack-nerd
+paru -S wezterm neovim cmake python ttf-hack-nerd
