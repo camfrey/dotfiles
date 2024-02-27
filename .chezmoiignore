@@ -2,4 +2,8 @@ README.md
 {{ if ne .chezmoi.os "windows" }}
 AppData/Local/clink/starship.lua
 Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
+{{ else if ne .chezmoi.os "linux" }}
+.zshenv
+.zshrc
+.config/zellij/config.kdl
 {{ end }}
