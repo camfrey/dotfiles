@@ -34,6 +34,10 @@ znap fpath _rustup 'rustup completions zsh'
 znap fpath _cargo 'rustup completions zsh cargo'
 znap fpath _starship 'starship completions zsh'
 
+# Update key binds for autocomplete plugin
+bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
+bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
+
 # Aliases
 alias starwars='telnet towel.blinkenlights.nl'
 
@@ -44,3 +48,4 @@ alias find=fd
 alias htop=btm
 alias top=btm
 alias ps=procs
+alias rm=trash
