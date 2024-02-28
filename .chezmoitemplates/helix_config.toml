@@ -3,3 +3,10 @@ theme = "github_dark"
 [editor]
 line-number = "relative"
 true-color = true
+bufferline = "always"
+
+[editor.whitespace]
+render = "all"
+
+[editor.indent-guides]
+render = true
