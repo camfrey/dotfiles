@@ -1,4 +1,3 @@
-# My dotfiles
+# Dotfiles
 
-Guide for dotbot can be found [here](https://www.elliotdenolf.com/posts/bootstrap-your-dotfiles-with-dotbot)
-
+Organized using [chezmoi](https://www.chezmoi.io/)
