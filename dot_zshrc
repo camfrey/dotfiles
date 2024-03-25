@@ -38,6 +38,12 @@ znap fpath _starship 'starship completions zsh'
 bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
 bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
 
+# Turn off znap git maintenance
+zstyle ':znap:*:*' git-maintenance off
+
+# Zoxide completions
+znap eval zoxide 'zoxide init zsh'
+
 # Aliases
 alias starwars='telnet towel.blinkenlights.nl'
 

@@ -29,3 +29,14 @@
 [user]
   name = Cameron Frey
   email = dev@camfrey.io
+
+{{ if eq .chezmoi.os "linux" }}
+[maintenance]
+  repo = $HOME/.local/share/zsh/znap
+  repo = $HOME/.local/share/zsh/marlonrichert/zsh-autocomplete
+  repo = $HOME/.local/share/zsh/marlonrichert/zsh-hist
+  repo = $HOME/.local/share/zsh/ohmyzsh/ohmyzsh
+  repo = $HOME/.local/share/zsh/zsh-users/zsh-autosuggestions
+  repo = $HOME/.local/share/zsh/zsh-users/zsh-completions
+  repo = $HOME/.local/share/zsh/zsh-users/zsh-syntax-highlighting
+{{ end }}
