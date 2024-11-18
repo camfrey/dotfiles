@@ -55,3 +55,4 @@ alias htop=btm
 alias top=btm
 alias ps=procs
 alias rm=trash
+alias grep=rg
