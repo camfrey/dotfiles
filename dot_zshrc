@@ -14,10 +14,8 @@ HISTFILE=$HOME/.local/share/zsh/history
 # Setup oh-my-sh
 # Pull repo through znap and source base script
 export ZSH="$HOME/.local/share/zsh/ohmyzsh/ohmyzsh"
-plugins=(aliases cp fd git git-auto-fetch history python sudo ubuntu)
+plugins=(aliases cp git git-auto-fetch history python sudo ubuntu)
 znap source ohmyzsh/ohmyzsh oh-my-zsh.sh
-
-znap source marlonrichert/zsh-autocomplete
 
 znap source marlonrichert/zsh-hist
 
@@ -26,6 +24,8 @@ znap source zsh-users/zsh-autosuggestions
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=( main brackets )
 znap source zsh-users/zsh-syntax-highlighting
+
+znap source marlonrichert/zsh-autocomplete
 
 # Use znap install for completions and functions
 znap install zsh-users/zsh-completions
