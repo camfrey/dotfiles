@@ -42,7 +42,7 @@ bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
 zstyle ':znap:*:*' git-maintenance off
 
 # Zoxide completions
-znap eval zoxide '$(zoxide init zsh --cmd cd)'
+znap eval zoxide 'zoxide init zsh --cmd cd'
 
 # Aliases
 alias starwars='telnet towel.blinkenlights.nl'
