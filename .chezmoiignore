@@ -9,6 +9,7 @@ AppData/Roaming/helix
 AppData/Roaming/helix/config.toml
 Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
 {{ else if ne .chezmoi.os "linux" }}
+.bashrc
 .zshenv
 .zshrc
 .config/zellij
