@@ -14,7 +14,7 @@ HISTFILE=$HOME/.local/share/zsh/history
 # Setup oh-my-sh
 # Pull repo through znap and source base script
 export ZSH="$HOME/.local/share/zsh/ohmyzsh/ohmyzsh"
-plugins=(aliases cp git git-auto-fetch history python sudo ubuntu)
+plugins=(alias-finder aliases eza git git-auto-fetch history python sudo ubuntu zsh-navigation-tools)
 znap source ohmyzsh/ohmyzsh oh-my-zsh.sh
 
 znap source marlonrichert/zsh-hist
@@ -33,6 +33,7 @@ znap install zsh-users/zsh-completions
 znap fpath _rustup 'rustup completions zsh'
 znap fpath _cargo 'rustup completions zsh cargo'
 znap fpath _starship 'starship completions zsh'
+znap fpath _chezmoi 'chezmoi completion zsh'
 
 # Update key binds for autocomplete plugin
 bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
@@ -40,6 +41,10 @@ bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
 
 # Turn off znap git maintenance
 zstyle ':znap:*:*' git-maintenance off
+zstyle ':omz:plugins:alias-finder' autoload yes # disabled by default
+zstyle ':omz:plugins:alias-finder' longer yes # disabled by default
+zstyle ':omz:plugins:alias-finder' exact yes # disabled by default
+zstyle ':omz:plugins:alias-finder' cheaper yes # disabled by default
 
 # Zoxide completions
 znap eval zoxide 'zoxide init zsh --cmd cd'
@@ -47,7 +52,6 @@ znap eval zoxide 'zoxide init zsh --cmd cd'
 # Aliases
 alias starwars='telnet towel.blinkenlights.nl'
 
-alias ls=eza
 alias cat=bat
 alias du=dust 
 alias find=fd
