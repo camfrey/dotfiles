@@ -27,8 +27,8 @@ znap source zsh-users/zsh-syntax-highlighting
 
 znap source marlonrichert/zsh-autocomplete
 
-# Use znap install for completions and functions
-znap install zsh-users/zsh-completions
+znap clone zsh-users/zsh-completions  # Make sure we have the repos we need.
+fpath=( ~[zsh-users/zsh-completions]/src $fpath )      # Add completions.
 
 znap fpath _rustup 'rustup completions zsh'
 znap fpath _cargo 'rustup completions zsh cargo'
@@ -58,5 +58,4 @@ alias find=fd
 alias htop=btm
 alias top=btm
 alias ps=procs
-alias rm=trash
 alias grep=rg
