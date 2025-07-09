@@ -17,5 +17,7 @@ config.color_scheme = 'GitHub Dark'
 
 config.font = wezterm.font("Hack Nerd Font", {weight="Regular", stretch="Normal", style="Normal"})
 
+config.window_background_opacity = 0.75
+
 -- and finally, return the configuration to wezterm
 return config
