@@ -14,18 +14,33 @@ HISTFILE=$HOME/.local/share/zsh/history
 # Setup oh-my-sh
 # Pull repo through znap and source base script
 export ZSH="$HOME/.local/share/zsh/ohmyzsh/ohmyzsh"
-plugins=(alias-finder aliases eza git git-auto-fetch history python sudo ubuntu zsh-navigation-tools)
+plugins=(alias-finder \
+        aliases \
+        eza \
+        fzf \
+        git \
+        git-auto-fetch \
+        history-substring-search \
+        history \
+        procs \
+        python \
+        ssh \
+        sudo \
+        systemd \
+        themes \
+        ubuntu \
+        zsh-navigation-tools)
 znap source ohmyzsh/ohmyzsh oh-my-zsh.sh
 
 znap source marlonrichert/zsh-hist
+znap source marlonrichert/zsh-autocomplete
 
 ZSH_AUTOSUGGEST_STRATEGY=( history )
 znap source zsh-users/zsh-autosuggestions
 
-ZSH_HIGHLIGHT_HIGHLIGHTERS=( main brackets )
+# Must be last plugin sourced per INSTALL.MD
+ZSH_HIGHLIGHT_HIGHLIGHTERS+=(brackets pattern cursor)
 znap source zsh-users/zsh-syntax-highlighting
-
-znap source marlonrichert/zsh-autocomplete
 
 znap clone zsh-users/zsh-completions  # Make sure we have the repos we need.
 fpath=( ~[zsh-users/zsh-completions]/src $fpath )      # Add completions.
