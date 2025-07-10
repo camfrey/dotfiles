@@ -16,4 +16,6 @@ Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
 .config/zellij/config.kdl
 .config/helix
 .config/helix/config.toml
+.config/nvim
+.config/nvim/init.lua
 {{ end }}
