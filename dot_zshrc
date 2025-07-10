@@ -33,14 +33,15 @@ plugins=(alias-finder \
 znap source ohmyzsh/ohmyzsh oh-my-zsh.sh
 
 znap source marlonrichert/zsh-hist
+
 znap source marlonrichert/zsh-autocomplete
 
-ZSH_AUTOSUGGEST_STRATEGY=( history )
 znap source zsh-users/zsh-autosuggestions
+ZSH_AUTOSUGGEST_STRATEGY=(history completion match_prev_cmd)
 
 # Must be last plugin sourced per INSTALL.MD
-ZSH_HIGHLIGHT_HIGHLIGHTERS+=(brackets pattern cursor)
 znap source zsh-users/zsh-syntax-highlighting
+ZSH_HIGHLIGHT_HIGHLIGHTERS+=(brackets pattern cursor)
 
 znap clone zsh-users/zsh-completions  # Make sure we have the repos we need.
 fpath=( ~[zsh-users/zsh-completions]/src $fpath )      # Add completions.
