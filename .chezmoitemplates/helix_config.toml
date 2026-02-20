@@ -10,3 +10,6 @@ render = "all"
 
 [editor.indent-guides]
 render = true
+
+[keys.normal.space]
+B = ":sh git log -n 5 --format='format:%%h (%%an: %%ar) %%s' --no-patch -L%{cursor_line},+1:%{buffer_name}"
