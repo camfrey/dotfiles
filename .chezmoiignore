@@ -7,6 +7,7 @@ AppData/Local/clink/starship.lua
 AppData/Roaming
 AppData/Roaming/helix
 AppData/Roaming/helix/config.toml
+Documents/PowerShell/Microsoft.PowerShell_profile.ps1
 Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
 {{ else if ne .chezmoi.os "linux" }}
 .bashrc
