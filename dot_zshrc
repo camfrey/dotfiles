@@ -28,6 +28,7 @@ plugins=(alias-finder \
         sudo \
         systemd \
         themes \
+        tmux \
         ubuntu \
         zsh-navigation-tools)
 znap source ohmyzsh/ohmyzsh oh-my-zsh.sh
@@ -75,3 +76,7 @@ alias htop=btm
 alias top=btm
 alias ps=procs
 alias grep=rg
+
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi

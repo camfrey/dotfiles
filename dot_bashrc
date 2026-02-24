@@ -8,9 +8,12 @@ alias find=fd
 alias htop=btm
 alias top=btm
 alias ps=procs
-alias rm=trash
 alias grep=rg
 
 if type -P starship &>/dev/null; then
   eval "$(starship init bash)"
+fi
+
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
 fi
