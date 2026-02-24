@@ -6,7 +6,7 @@
 
 [core]
   pager = delta
-  editor = nvim
+  editor = hx
 
 [interactive]
   diffFilter = delta --color-only
@@ -26,9 +26,8 @@
 [diff]
   colorMoved = default
 
-[user]
-  name = Cameron Frey
-  email = dev@camfrey.io
+[include]
+  path = .gituserconfig
 
 {{ if eq .chezmoi.os "linux" }}
 [maintenance]
