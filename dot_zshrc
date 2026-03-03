@@ -16,20 +16,24 @@ HISTFILE=$HOME/.local/share/zsh/history
 export ZSH="$HOME/.local/share/zsh/ohmyzsh/ohmyzsh"
 plugins=(alias-finder \
         aliases \
+        docker \
         eza \
         fzf \
         git \
         git-auto-fetch \
         history-substring-search \
         history \
+        man \
         procs \
         python \
         ssh \
         sudo \
         systemd \
         themes \
+        tldr \
         tmux \
         ubuntu \
+        uv \
         zsh-navigation-tools)
 znap source ohmyzsh/ohmyzsh oh-my-zsh.sh
 
@@ -52,19 +56,26 @@ znap fpath _cargo 'rustup completions zsh cargo'
 znap fpath _starship 'starship completions zsh'
 znap fpath _chezmoi 'chezmoi completion zsh'
 
+# Zoxide completions
+znap eval zoxide 'zoxide init zsh --cmd cd'
+
 # Update key binds for autocomplete plugin
 bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
 bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
 
 # Turn off znap git maintenance
 zstyle ':znap:*:*' git-maintenance off
-zstyle ':omz:plugins:alias-finder' autoload yes # disabled by default
-zstyle ':omz:plugins:alias-finder' longer yes # disabled by default
-zstyle ':omz:plugins:alias-finder' exact yes # disabled by default
-zstyle ':omz:plugins:alias-finder' cheaper yes # disabled by default
 
-# Zoxide completions
-znap eval zoxide 'zoxide init zsh --cmd cd'
+# omzsh zstyle options
+## alias finder
+zstyle ':omz:plugins:alias-finder' autoload yes
+zstyle ':omz:plugins:alias-finder' longer yes
+zstyle ':omz:plugins:alias-finder' exact yes
+zstyle ':omz:plugins:alias-finder' cheaper yes
+
+## docker
+zstyle ':completion:*:*:docker:*' option-stacking yes
+zstyle ':completion:*:*:docker-*:*' option-stacking yes
 
 # Aliases
 alias starwars='telnet towel.blinkenlights.nl'
@@ -79,4 +90,9 @@ alias grep=rg
 
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
+fi
+
+if [ -d "$HOME/.zfunc" ] ; then
+    fpath=( $HOME/.zfunc "${fpath[@]}" )
+    autoload -Uz $HOME/.zfunc/*
 fi
