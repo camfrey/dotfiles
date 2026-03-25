@@ -1,0 +1,3 @@
+[[index]]
+url = "https://artifactory.jhuapl.edu/artifactory/api/pypi/python-remote/simple"
+default = true

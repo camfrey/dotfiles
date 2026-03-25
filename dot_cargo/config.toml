@@ -1,0 +1,6 @@
+# Makes artifactory the default registry and saves passing --registry parameter
+[registry]
+default = "artifactory"
+
+[registries.artifactory]
+index = "sparse+https://artifactory.jhuapl.edu/artifactory/api/cargo/cargo-remote/index/"

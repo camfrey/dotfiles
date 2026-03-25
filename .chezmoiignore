@@ -19,4 +19,8 @@ Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
 .config/helix/config.toml
 .config/nvim
 .config/nvim/init.lua
+{{ if ne .chezmoi.username "freycd1" }}
+.cargo/config.toml
+.config/uv/uv.toml
+{{ end }}
 {{ end }}
