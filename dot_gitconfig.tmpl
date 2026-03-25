@@ -1,6 +1,15 @@
 [init]
   defaultBranch = main
 
+[user]
+{{- if eq .chezmoi.username "freycd1" }}
+  name = Frey, Cameron D.
+  email = cam.frey@jhuapl.edu
+{{- else }}
+  name = Cam Frey
+  email = dev@camfrey.io
+{{ end }}
+
 [alias]
   lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
 
@@ -26,10 +35,7 @@
 [diff]
   colorMoved = default
 
-[include]
-  path = .gituserconfig
-
-{{ if eq .chezmoi.os "linux" }}
+{{ if eq .chezmoi.os "linux" -}}
 [maintenance]
   repo = $HOME/.local/share/zsh/znap
   repo = $HOME/.local/share/zsh/marlonrichert/zsh-autocomplete
@@ -38,4 +44,4 @@
   repo = $HOME/.local/share/zsh/zsh-users/zsh-autosuggestions
   repo = $HOME/.local/share/zsh/zsh-users/zsh-completions
   repo = $HOME/.local/share/zsh/zsh-users/zsh-syntax-highlighting
-{{ end }}
+{{ end -}}
