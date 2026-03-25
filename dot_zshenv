@@ -1,3 +1,13 @@
-PATH=$HOME/.local/share/bob/nvim-bin:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/go/bin:$PATH
-VISUAL=nvim
-EDITOR=$VISUAL
+typeset -U path PATH
+
+[[ -d "$HOME/.cargo/bin" ]] && path=("$HOME/.cargo/bin" $path)
+[[ -d "$HOME/.local/bin" ]] && path=("$HOME/.local/bin" $path)
+
+if [[ -d "$HOME/.config/nvm" ]]; then
+  export NVM_DIR="$HOME/.config/nvm"
+  [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
+  [[ -s "$NVM_DIR/bash_completion" ]] && source "$NVM_DIR/bash_completion"
+fi
+
+export EDITOR=vim
+export VISUAL=hx

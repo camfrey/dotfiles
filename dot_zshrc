@@ -77,6 +77,12 @@ zstyle ':omz:plugins:alias-finder' cheaper yes
 zstyle ':completion:*:*:docker:*' option-stacking yes
 zstyle ':completion:*:*:docker-*:*' option-stacking yes
 
+# Add zfunc directory functions
+if [[ -d "$HOME/.zfunc" ]] ; then
+    fpath=( $HOME/.zfunc "${fpath[@]}" )
+    autoload -Uz $HOME/.zfunc/*
+fi
+
 # Aliases
 alias starwars='telnet towel.blinkenlights.nl'
 
@@ -87,16 +93,3 @@ alias htop=btm
 alias top=btm
 alias ps=procs
 alias grep=rg
-
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
-fi
-
-if [ -d "$HOME/.zfunc" ] ; then
-    fpath=( $HOME/.zfunc "${fpath[@]}" )
-    autoload -Uz $HOME/.zfunc/*
-fi
-
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
