@@ -22,5 +22,9 @@ Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
 {{ if ne .chezmoi.username "freycd1" }}
 .cargo/config.toml
 .config/uv/uv.toml
+.ssh/config.d/apl.conf
+.ssh/config.d/pod.conf
+.ssh/config.d/ric.conf
+.ssh/config.d/st.conf
 {{ end }}
 {{ end }}
