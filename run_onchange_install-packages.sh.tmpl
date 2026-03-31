@@ -1,6 +1,12 @@
 {{- if eq .chezmoi.os "linux" -}}
 #!/usr/bin/env bash
 
+{{ if eq .chezmoi.osRelease.id "ubuntu" -}}
+sudo apt update
+sudo apt upgrade
+sudo apt install zsh fzf
+{{- end }}
+
 if ! command -v cargo &> /dev/null; then
     echo "Rust not found. Installing rustup..."
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
