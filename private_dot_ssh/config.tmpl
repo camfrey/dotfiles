@@ -1,5 +1,7 @@
 Include config.d/*.conf
-{{ if contains "camfrey" .chezmoi.username }}
+
+{{- if contains "camfrey" .chezmoi.username }}
+
 Host zybo
 	User student
 	StrictHostKeyChecking no
