@@ -1,0 +1,31 @@
+{{- if eq .chezmoi.os "linux" }}
+#!/usr/bin/env bash
+
+if ! command -v cargo &> /dev/null; then
+    echo "Rust not found. Installing rustup..."
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+    source "$HOME/.cargo/env"
+fi
+
+CARGO_PACKAGES=(
+    bat bottom cargo-cache cargo-update 
+    du-dust eza fd-find git-delta 
+    procs ripgrep sd starship 
+    tealdeer zoxide
+)
+
+INSTALLED_LIST=$(cargo install --list)
+
+for pkg in "${CARGO_PACKAGES[@]}"; do
+    # Check if the package name appears at the start of a line in the list
+    if echo "$INSTALLED_LIST" | grep -q "^$pkg "; then
+        echo "$pkg is already installed."
+    else
+        echo "Installing $pkg..."
+        cargo install "$pkg"
+    fi
+done
+
+echo "Running global update..."
+cargo install-update -a
+{{- end }}

@@ -1,0 +1,31 @@
+{{- if eq .chezmoi.os "windows" }}
+@echo off
+SETLOCAL EnableDelayedExpansion
+
+:: 1. Check if cargo is in the PATH
+where cargo >nul 2>nul
+if %ERRORLEVEL% NEQ 0 (
+    echo Rust not found. Installing rustup...
+    curl -sSf -o rustup-init.exe https://win.rustup.rs/x86_64
+    start /wait rustup-init.exe -y --no-modify-path
+    del rustup-init.exe
+    
+    :: Manually add cargo to the current session path
+    set "PATH=%PATH%;%USERPROFILE%\.cargo\bin"
+)
+
+:: 2. Install the set of cargo tools
+echo Installing Cargo tools...
+set "pkgs=bat bottom cargo-cache cargo-update du-dust eza fd-find git-delta procs ripgrep sd starship tealdeer zoxide"
+
+for %%p in (%pkgs%) do (
+    echo Installing %%p...
+    cargo install %%p
+)
+
+:: 3. Run cargo install-update
+echo Updating all cargo binaries...
+cargo install-update -a
+
+ENDLOCAL
+{{- end }}
