@@ -11,3 +11,8 @@ fi
 
 export EDITOR=vim
 export VISUAL=hx
+
+{{- if eq .chezmoi.username "freycd1" }}
+export NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt
+export TABNINE_HOST="https://tabnine.jhuapl.edu"
+{{- end }}
