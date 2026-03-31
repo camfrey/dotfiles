@@ -19,12 +19,16 @@ Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
 .config/helix/config.toml
 .config/nvim
 .config/nvim/init.lua
+{{ end }}
+
 {{ if ne .chezmoi.username "freycd1" }}
-.cargo/config.toml
-.config/uv/uv.toml
 .ssh/config.d/apl.conf
 .ssh/config.d/pod.conf
 .ssh/config.d/ric.conf
 .ssh/config.d/st.conf
 {{ end }}
+
+{{ if and (ne .chezmoi.os "linux") (ne .chezmoi.username "freycd1") }}
+.cargo/config.toml
+.config/uv/uv.toml
 {{ end }}
