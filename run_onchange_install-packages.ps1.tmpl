@@ -16,24 +16,23 @@ foreach ($bucket in $buckets) {
     }
 }
 
-# Mapping package names to command names for verification
-$scoopPackages = @{
-    "7zip" = "7z"
-    "fd" = "fd"
-    "fzf" = "fzf"
-    "git" = "git"
-    "helix" = "hx"
-    "neovim" = "nvim"
-    "pwsh" = "pwsh"
-    "ripgrep" = "rg"
-    "rustup" = "rustup"
-    "starship" = "starship"
-    "sudo" = "sudo"
-    "wezterm" = "wezterm"
-}
-foreach ($pkg in $scoopPackages.Keys) {
-    $cmd = $scoopPackages[$pkg]
-    if (!(Get-Command $cmd -ErrorAction SilentlyContinue)) {
+$scoopPackages = @(
+    "7zip",
+    "fd",
+    "fzf",
+    "git",
+    "helix",
+    "neovim",
+    "pwsh",
+    "ripgrep",
+    "rustup",
+    "starship",
+    "sudo",
+    "wezterm"
+)
+$installedScoopList = scoop list | Out-String
+foreach ($pkg in $scoopPackages) {
+    if ($installedScoopList -notmatch "(?m)^$([regex]::Escape($pkg))\s") {
         Write-Host "Installing Scoop package: $pkg"
         scoop install $pkg
     }
@@ -52,25 +51,15 @@ if (!(Get-Command cargo -ErrorAction SilentlyContinue)) {
     $env:Path += ";$env:USERPROFILE\.cargo\bin"
 }
 
-# Mapping package names to command names for verification
-$cargoPackages = @{
-    "bat"          = "bat"
-    "bottom"       = "btm"
-    "cargo-cache"  = "cargo-cache"
-    "cargo-update" = "cargo-install-update"
-    "du-dust"      = "dust"
-    "eza"          = "eza"
-    "fd-find"      = "fd"
-    "git-delta"    = "delta"
-    "procs"        = "procs"
-    "ripgrep"      = "rg"
-    "sd"           = "sd"
-    "tealdeer"     = "tldr"
-    "zoxide"       = "zoxide"
+$cargoPackagesFile = Join-Path '{{ .chezmoi.sourceDir }}' 'cargo-packages.txt'
+if (!(Test-Path $cargoPackagesFile)) {
+    throw "Cargo packages file not found: $cargoPackagesFile"
 }
-foreach ($pkg in $cargoPackages.Keys) {
-    $cmd = $cargoPackages[$pkg]
-    if (!(Get-Command $cmd -ErrorAction SilentlyContinue)) {
+
+$cargoPackages = Get-Content $cargoPackagesFile | ForEach-Object { $_.Trim() } | Where-Object { $_ }
+$installedCargoList = cargo install --list | Out-String
+foreach ($pkg in $cargoPackages) {
+    if ($installedCargoList -notmatch "(?m)^$([regex]::Escape($pkg))\s") {
         Write-Host "Installing Cargo tool: $pkg"
         cargo install $pkg
     }

@@ -7,16 +7,20 @@ if ! command -v cargo &> /dev/null; then
     source "$HOME/.cargo/env"
 fi
 
-CARGO_PACKAGES=(
-    bat bottom cargo-cache cargo-update 
-    du-dust eza fd-find git-delta 
-    procs ripgrep sd starship 
-    tealdeer zoxide
-)
+CARGO_PACKAGES_FILE="{{ .chezmoi.sourceDir }}/cargo-packages.txt"
+
+if [[ ! -f "$CARGO_PACKAGES_FILE" ]]; then
+    echo "Cargo packages file not found: $CARGO_PACKAGES_FILE"
+    exit 1
+fi
 
 INSTALLED_LIST=$(cargo install --list)
 
-for pkg in "${CARGO_PACKAGES[@]}"; do
+while IFS= read -r pkg; do
+    if [[ -z "${pkg//[[:space:]]/}" ]]; then
+        continue
+    fi
+
     # Check if the package name appears at the start of a line in the list
     if echo "$INSTALLED_LIST" | grep -q "^$pkg "; then
         echo "$pkg is already installed."
@@ -24,7 +28,7 @@ for pkg in "${CARGO_PACKAGES[@]}"; do
         echo "Installing $pkg..."
         cargo install "$pkg"
     fi
-done
+done < "$CARGO_PACKAGES_FILE"
 
 echo "Running global update..."
 cargo install-update -a

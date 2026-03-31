@@ -1,0 +1,14 @@
+bat
+bottom
+cargo-cache
+cargo-update
+du-dust
+eza
+fd-find
+git-delta
+procs
+ripgrep
+sd
+starship
+tealdeer
+zoxide
