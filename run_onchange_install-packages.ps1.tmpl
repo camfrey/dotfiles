@@ -3,21 +3,33 @@ if (!(Get-Command scoop -ErrorAction SilentlyContinue)) {
     Write-Host "Scoop not found. Installing Scoop..."
     Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
     Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+    # Refresh path for scoop
+    $env:Path = [System.Environment]::GetEnvironmentVariable("Path", "User") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "Machine")
 }
 
-# Refresh path for scoop
-$env:Path = [System.Environment]::GetEnvironmentVariable("Path", "User") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "Machine")
-
-$buckets = @("extras", "nerd-fonts", "java")
+Write-Host "Checking scoop buckets..."
+$buckets = @(
+    @{ Name = "extras" },
+    @{ Name = "nerd-fonts" },
+    @{ Name = "java" },
+    @{ Name = "abyss"; URL = "https://github.com/abgox/abyss" }
+)
 foreach ($bucket in $buckets) {
-    if (!(scoop bucket list | Select-String $bucket)) {
-        Write-Host "Adding Scoop bucket: $bucket"
-        scoop bucket add $bucket
+    if (!(scoop bucket list | Select-String $bucket.Name)) {
+        Write-Host "Adding Scoop bucket: $($bucket.Name)"
+        if ($bucket.URL) {
+            scoop bucket add $bucket.Name $bucket.URL
+        } else {
+            scoop bucket add $bucket.Name
+        }
     }
 }
 
+Write-Host "Checking scoop packages..."
 $scoopPackages = @(
     "7zip",
+    "abgox.PSCompletions",
+    "carapace-bin",
     "fd",
     "fzf",
     "git",
@@ -68,4 +80,13 @@ foreach ($pkg in $cargoPackages) {
 Write-Host "Updating all cargo binaries..."
 cargo install-update -a
 cargo cache -a
+
+Write-Host "Installing PowerShell modules..."
+$modules = @("CompletionPredictor", "PSCompletions")
+foreach ($module in $modules) {
+    if (!(Get-Module -ListAvailable $module)) {
+        Write-Host "Installing PowerShell module: $module"
+        Install-Module -Name $module -Scope CurrentUser -Force -AllowClobber
+    }
+}
 {{- end }}
