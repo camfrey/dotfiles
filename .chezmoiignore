@@ -29,7 +29,7 @@ Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
 .ssh/config.d/st.conf
 {{ end }}
 
-{{ if and (ne .chezmoi.os "linux") (ne .chezmoi.username "freycd1") }}
+{{ if or (ne .chezmoi.os "linux") (ne .chezmoi.username "freycd1") }}
 .cargo/config.toml
 .config/uv/uv.toml
 {{ end }}
