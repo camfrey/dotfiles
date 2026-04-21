@@ -9,6 +9,11 @@ if [[ -d "$HOME/.config/nvm" ]]; then
   [[ -s "$NVM_DIR/bash_completion" ]] && source "$NVM_DIR/bash_completion"
 fi
 
+if [[ -d "$HOME/.local/share/pnpm" ]]; then
+  export PNPM_HOME="$HOME/.local/share/pnpm"
+  path=("$PNPM_HOME" $path)
+fi
+
 export EDITOR=vim
 export VISUAL=hx
 
