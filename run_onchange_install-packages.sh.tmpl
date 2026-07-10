@@ -1,7 +1,8 @@
-{{- if eq .chezmoi.os "linux" -}}
+{{- if or (eq .chezmoi.os "linux") (eq .chezmoi.os "darwin") -}}
 #!/usr/bin/env bash
 
-{{ if eq .chezmoi.osRelease.id "ubuntu" -}}
+{{- if eq .chezmoi.os "linux" }}
+{{- if eq .chezmoi.osRelease.id "ubuntu" }}
 apt_packages=(
     fzf
     zsh
@@ -19,8 +20,9 @@ for pkg in "${apt_packages[@]}"; do
     fi
 done
 {{- end }}
+{{- end }}
 
-{{- if eq .chezmoi.os "darwin" -}}
+{{- if eq .chezmoi.os "darwin" }}
 BREW_PACKAGES_FILE="{{ .chezmoi.sourceDir }}/brew-packages.txt"
 
 if [[ -f "$BREW_PACKAGES_FILE" ]]; then
