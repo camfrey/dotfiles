@@ -1,0 +1,17 @@
+bat
+chezmoi
+eza
+fd
+fzf
+git-delta
+helix
+minicom
+opencode
+ripgrep
+rustup
+starship
+tealdeer
+tmux
+uv
+zellij
+zoxide

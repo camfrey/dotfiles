@@ -24,6 +24,7 @@ plugins=(alias-finder \
         history-substring-search \
         history \
         man \
+        podman \
         procs \
         python \
         ssh \
