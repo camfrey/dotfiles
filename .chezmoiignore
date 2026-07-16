@@ -1,5 +1,6 @@
 README.md
 cargo-packages.txt
+brew-packages.txt
 {{ if ne .chezmoi.os "windows" }}
 AppData
 AppData/Local
