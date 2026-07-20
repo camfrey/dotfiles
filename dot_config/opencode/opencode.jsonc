@@ -1,0 +1,88 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "permission": {
+    "*": "ask",
+    "read": "allow",
+    "grep": "allow",
+    "glob": "allow",
+    "todowrite": "allow",
+    "question": "allow",
+    "apply_patch": "allow",
+    "skill": "allow"
+  },
+  "provider": {
+    "opal": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Opal",
+      "options": {
+        "baseURL": "https://aigateway.jhuapl.edu/v1"
+      },
+      "models": {
+        "@opal/google/gemma-4-31B-it": {
+          "name": "google/gemma-4-31B-it"
+        },
+        "@opal/openai/gpt-oss-120b": {
+          "name": "openai/gpt-oss-120b"
+        },
+        "@opal/meta-llama/Llama-3.3-70B-Instruct": {
+          "name": "meta-llama/Llama-3.3-70B-Instruct"
+        },
+        "@opal/moonshotai/Kimi-K2.7-Code": {
+          "name": "moonshotai/Kimi-K2.7-Code"
+        },
+        "@opal/MiniMaxAI-MiniMax-M2.5": {
+          "name": "MiniMaxAI/MiniMax-M2.5"
+        },
+        "@opal/Qwen/Qwen3.6-35B-A3B": {
+          "name": "Qwen/Qwen3.6-35B-A3B"
+        }
+      }
+    },
+    "openai-portkey": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "OpenAI Portkey",
+      "options": {
+        "baseURL": "https://aigateway.jhuapl.edu/v1"
+      },
+      "models": {
+        "@openai-enterprise-pilot/gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    },
+    "eagle": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Eagle",
+      "options": {
+        "baseURL": "https://aigateway.jhuapl.edu/v1"
+      },
+      "models": {
+        "@gemini-eagle/gemini-3.1-pro-preview-customtools": {
+          "name": "gemini/3.1-pro"
+        }
+      }
+    },
+    "eagle-cui": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Eagle CUI",
+      "options": {
+        "baseURL": "https://aigateway.jhuapl.edu/v1"
+      },
+      "models": {
+        "@azure-eagle_cui/gpt-5.1": {
+          "name": "openai/gpt-5.1"
+        },
+        "@bedrock-eagle-cui/us-gov.anthropic.claude-sonnet-4-5-20250929-v1:0": {
+          "name": "claude/sonnet-4.5"
+        }
+      }
+    }
+  },
+  "model": "opal/@opal/moonshotai/Kimi-K2.7-Code",
+  "enabled_providers": [
+    "opal",
+    "openai-portkey",
+    "eagle",
+    "eagle-cui"
+  ]
+}
