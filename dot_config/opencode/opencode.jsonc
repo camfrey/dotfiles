@@ -78,7 +78,7 @@
       }
     }
   },
-  "model": "opal/@opal/moonshotai/Kimi-K2.7-Code",
+  "model": "opal/@opal/google/gemma-4-31B-it",
   "enabled_providers": [
     "opal",
     "openai-portkey",
